@@ -1,0 +1,1081 @@
+{
+  "name": "CardioIA - Assistente Cardiológico Virtual",
+  "description": "Assistente conversacional de triagem inicial em saúde cardiovascular. Projeto CardioIA - Fase 5, Parte 1. Uso educacional; não substitui diagnóstico médico profissional.",
+  "language": "pt-br",
+  "intents": [
+    {
+      "intent": "greeting",
+      "description": "Usuário inicia a conversa ou cumprimenta o assistente.",
+      "examples": [
+        {
+          "text": "oi"
+        },
+        {
+          "text": "olá"
+        },
+        {
+          "text": "ola"
+        },
+        {
+          "text": "bom dia"
+        },
+        {
+          "text": "boa tarde"
+        },
+        {
+          "text": "boa noite"
+        },
+        {
+          "text": "e aí"
+        },
+        {
+          "text": "quero começar"
+        },
+        {
+          "text": "oi, tudo bem?"
+        }
+      ]
+    },
+    {
+      "intent": "goodbye",
+      "description": "Usuário encerra a conversa.",
+      "examples": [
+        {
+          "text": "tchau"
+        },
+        {
+          "text": "até logo"
+        },
+        {
+          "text": "já vou"
+        },
+        {
+          "text": "encerrar conversa"
+        },
+        {
+          "text": "obrigado, até mais"
+        },
+        {
+          "text": "vou sair agora"
+        },
+        {
+          "text": "por hoje é só"
+        }
+      ]
+    },
+    {
+      "intent": "thanks",
+      "description": "Usuário agradece.",
+      "examples": [
+        {
+          "text": "obrigado"
+        },
+        {
+          "text": "obrigada"
+        },
+        {
+          "text": "valeu"
+        },
+        {
+          "text": "muito obrigado pela ajuda"
+        },
+        {
+          "text": "agradeço"
+        }
+      ]
+    },
+    {
+      "intent": "general_symptoms",
+      "description": "Usuário relata sintomas cardiovasculares não urgentes.",
+      "examples": [
+        {
+          "text": "estou sentindo dor no peito"
+        },
+        {
+          "text": "tenho tido palpitações"
+        },
+        {
+          "text": "sinto falta de ar quando subo escadas"
+        },
+        {
+          "text": "ando com muita tontura"
+        },
+        {
+          "text": "sinto muita fadiga ultimamente"
+        },
+        {
+          "text": "minhas pernas incham à noite"
+        },
+        {
+          "text": "tive um suor frio agora há pouco"
+        },
+        {
+          "text": "sinto um aperto no peito às vezes"
+        }
+      ]
+    },
+    {
+      "intent": "emergency_symptoms",
+      "description": "Usuário relata sintomas graves/agudos que indicam possível emergência.",
+      "examples": [
+        {
+          "text": "acho que estou tendo um infarto"
+        },
+        {
+          "text": "dor muito forte no peito agora"
+        },
+        {
+          "text": "não consigo respirar direito"
+        },
+        {
+          "text": "estou com dor no peito insuportável"
+        },
+        {
+          "text": "socorro, meu peito dói muito"
+        },
+        {
+          "text": "estou passando muito mal do coração agora"
+        },
+        {
+          "text": "a dor no peito não passa e estou suando frio"
+        }
+      ]
+    },
+    {
+      "intent": "risk_factors",
+      "description": "Usuário informa fatores de risco cardiovascular.",
+      "examples": [
+        {
+          "text": "tenho pressão alta"
+        },
+        {
+          "text": "sou diabético"
+        },
+        {
+          "text": "eu fumo bastante"
+        },
+        {
+          "text": "tenho colesterol alto"
+        },
+        {
+          "text": "tenho histórico de infarto na família"
+        },
+        {
+          "text": "estou acima do peso"
+        },
+        {
+          "text": "meu pai teve problema cardíaco"
+        },
+        {
+          "text": "sou sedentário"
+        }
+      ]
+    },
+    {
+      "intent": "ask_condition_info",
+      "description": "Usuário pergunta o que é uma condição/doença cardíaca.",
+      "examples": [
+        {
+          "text": "o que é arritmia"
+        },
+        {
+          "text": "me explica o que é cardiomegalia"
+        },
+        {
+          "text": "o que significa insuficiência cardíaca"
+        },
+        {
+          "text": "pode explicar o que é um infarto"
+        },
+        {
+          "text": "não sei o que é arritmia cardíaca"
+        },
+        {
+          "text": "o que é essa doença cardiomegalia"
+        }
+      ]
+    },
+    {
+      "intent": "ask_exam_info",
+      "description": "Usuário pergunta sobre exames cardiológicos.",
+      "examples": [
+        {
+          "text": "para que serve o eletrocardiograma"
+        },
+        {
+          "text": "o que é um ecocardiograma"
+        },
+        {
+          "text": "preciso entender o exame de raio-x do tórax"
+        },
+        {
+          "text": "como funciona o ECG"
+        },
+        {
+          "text": "o que o raio-x de tórax mostra"
+        },
+        {
+          "text": "explica o exame ecocardiograma"
+        }
+      ]
+    },
+    {
+      "intent": "schedule_appointment",
+      "description": "Usuário deseja agendar uma consulta.",
+      "examples": [
+        {
+          "text": "quero marcar uma consulta"
+        },
+        {
+          "text": "preciso agendar um horário"
+        },
+        {
+          "text": "gostaria de agendar com um cardiologista"
+        },
+        {
+          "text": "como faço para marcar uma consulta"
+        },
+        {
+          "text": "quero agendar"
+        },
+        {
+          "text": "pode marcar uma consulta pra mim"
+        }
+      ]
+    },
+    {
+      "intent": "escalate_human",
+      "description": "Usuário solicita atendimento humano.",
+      "examples": [
+        {
+          "text": "quero falar com um atendente"
+        },
+        {
+          "text": "preciso falar com uma pessoa de verdade"
+        },
+        {
+          "text": "pode me transferir para um humano"
+        },
+        {
+          "text": "quero atendimento humano"
+        },
+        {
+          "text": "isso não está ajudando, quero falar com alguém"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "entity": "symptom",
+      "description": "Sintomas cardiovasculares comuns.",
+      "fuzzy_match": true,
+      "values": [
+        {
+          "value": "dor_no_peito",
+          "type": "synonyms",
+          "synonyms": [
+            "dor no peito",
+            "aperto no peito",
+            "peso no peito",
+            "pressão no peito"
+          ]
+        },
+        {
+          "value": "palpitacoes",
+          "type": "synonyms",
+          "synonyms": [
+            "palpitações",
+            "coração acelerado",
+            "coração disparado",
+            "batedeira"
+          ]
+        },
+        {
+          "value": "falta_de_ar",
+          "type": "synonyms",
+          "synonyms": [
+            "falta de ar",
+            "dificuldade para respirar",
+            "cansaço ao respirar",
+            "respiração curta"
+          ]
+        },
+        {
+          "value": "tontura",
+          "type": "synonyms",
+          "synonyms": [
+            "tontura",
+            "vertigem",
+            "cabeça leve",
+            "quase desmaiando"
+          ]
+        },
+        {
+          "value": "fadiga",
+          "type": "synonyms",
+          "synonyms": [
+            "fadiga",
+            "cansaço extremo",
+            "cansaço constante",
+            "fraqueza"
+          ]
+        },
+        {
+          "value": "inchaco_pernas",
+          "type": "synonyms",
+          "synonyms": [
+            "inchaço nas pernas",
+            "pernas inchadas",
+            "edema nas pernas",
+            "pés inchados"
+          ]
+        },
+        {
+          "value": "suor_frio",
+          "type": "synonyms",
+          "synonyms": [
+            "suor frio",
+            "suando frio",
+            "transpiração fria"
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "risk_factor",
+      "description": "Fatores de risco cardiovascular.",
+      "fuzzy_match": true,
+      "values": [
+        {
+          "value": "hipertensao",
+          "type": "synonyms",
+          "synonyms": [
+            "pressão alta",
+            "hipertensão",
+            "hipertenso"
+          ]
+        },
+        {
+          "value": "diabetes",
+          "type": "synonyms",
+          "synonyms": [
+            "diabetes",
+            "diabético",
+            "diabética",
+            "açúcar alto"
+          ]
+        },
+        {
+          "value": "tabagismo",
+          "type": "synonyms",
+          "synonyms": [
+            "fumo",
+            "fumante",
+            "cigarro",
+            "tabagismo"
+          ]
+        },
+        {
+          "value": "obesidade",
+          "type": "synonyms",
+          "synonyms": [
+            "obesidade",
+            "acima do peso",
+            "sobrepeso"
+          ]
+        },
+        {
+          "value": "historico_familiar",
+          "type": "synonyms",
+          "synonyms": [
+            "histórico familiar",
+            "histórico na família",
+            "caso na família"
+          ]
+        },
+        {
+          "value": "colesterol_alto",
+          "type": "synonyms",
+          "synonyms": [
+            "colesterol alto",
+            "colesterol elevado"
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "condition",
+      "description": "Condições/doenças cardíacas.",
+      "fuzzy_match": true,
+      "values": [
+        {
+          "value": "arritmia",
+          "type": "synonyms",
+          "synonyms": [
+            "arritmia",
+            "arritmia cardíaca",
+            "batimento irregular"
+          ]
+        },
+        {
+          "value": "cardiomegalia",
+          "type": "synonyms",
+          "synonyms": [
+            "cardiomegalia",
+            "coração aumentado",
+            "coração grande"
+          ]
+        },
+        {
+          "value": "insuficiencia_cardiaca",
+          "type": "synonyms",
+          "synonyms": [
+            "insuficiência cardíaca",
+            "insuficiencia cardiaca",
+            "coração fraco"
+          ]
+        },
+        {
+          "value": "infarto",
+          "type": "synonyms",
+          "synonyms": [
+            "infarto",
+            "ataque cardíaco",
+            "infarto do miocárdio"
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "exam",
+      "description": "Exames cardiológicos.",
+      "fuzzy_match": true,
+      "values": [
+        {
+          "value": "eletrocardiograma",
+          "type": "synonyms",
+          "synonyms": [
+            "eletrocardiograma",
+            "ecg",
+            "eletro"
+          ]
+        },
+        {
+          "value": "raio_x_torax",
+          "type": "synonyms",
+          "synonyms": [
+            "raio-x de tórax",
+            "raio x do torax",
+            "radiografia de tórax",
+            "rx de tórax"
+          ]
+        },
+        {
+          "value": "ecocardiograma",
+          "type": "synonyms",
+          "synonyms": [
+            "ecocardiograma",
+            "eco do coração",
+            "ecocardiografia"
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "period",
+      "description": "Período do dia preferido para agendamento.",
+      "fuzzy_match": true,
+      "values": [
+        {
+          "value": "manha",
+          "type": "synonyms",
+          "synonyms": [
+            "manhã",
+            "de manhã",
+            "pela manhã",
+            "período da manhã"
+          ]
+        },
+        {
+          "value": "tarde",
+          "type": "synonyms",
+          "synonyms": [
+            "tarde",
+            "de tarde",
+            "à tarde",
+            "período da tarde"
+          ]
+        },
+        {
+          "value": "noite",
+          "type": "synonyms",
+          "synonyms": [
+            "noite",
+            "de noite",
+            "à noite",
+            "período da noite"
+          ]
+        }
+      ]
+    }
+  ],
+  "dialog_nodes": [
+    {
+      "dialog_node": "node_welcome",
+      "type": "standard",
+      "title": "Boas-vindas",
+      "conditions": "welcome",
+      "parent": null,
+      "previous_sibling": null,
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Olá! 👋 Eu sou o assistente virtual do CardioIA. Posso te ajudar a entender sintomas, fatores de risco, exames cardiológicos e agendar consultas. Importante: não realizo diagnósticos — em caso de emergência, ligue imediatamente para o SAMU (192). Como posso te ajudar hoje?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {}
+    },
+    {
+      "dialog_node": "node_emergency",
+      "type": "standard",
+      "title": "Emergência Detectada",
+      "conditions": "#emergency_symptoms",
+      "parent": null,
+      "previous_sibling": "node_welcome",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "🚨 Os sintomas que você descreveu podem indicar uma emergência cardíaca. Por favor, ligue AGORA para o SAMU (192) ou vá ao pronto-socorro mais próximo. Não continue este atendimento — busque ajuda médica imediata."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {},
+      "digress_in": "does_not_return",
+      "digress_out": "does_not_return"
+    },
+    {
+      "dialog_node": "node_greeting",
+      "type": "standard",
+      "title": "Saudação",
+      "conditions": "#greeting",
+      "parent": null,
+      "previous_sibling": "node_emergency",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Olá! Como posso te ajudar hoje? Posso falar sobre sintomas, fatores de risco, exames ou agendar uma consulta."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {}
+    },
+    {
+      "dialog_node": "node_symptoms",
+      "type": "standard",
+      "title": "Sintomas Gerais",
+      "conditions": "#general_symptoms",
+      "parent": null,
+      "previous_sibling": "node_greeting",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Entendo que você está sentindo <? $symptom ?>. É importante não ignorar esse tipo de sinal. Se o sintoma for intenso, súbito ou vier acompanhado de falta de ar, dor irradiando para o braço ou suor frio, procure atendimento de emergência imediatamente. Caso contrário, recomendo agendar uma consulta para avaliação. Deseja agendar agora?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "symptom": "@symptom"
+      }
+    },
+    {
+      "dialog_node": "node_risk_factors",
+      "type": "standard",
+      "title": "Fatores de Risco",
+      "conditions": "#risk_factors",
+      "parent": null,
+      "previous_sibling": "node_symptoms",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Obrigado por compartilhar essa informação sobre <? $risk_factor ?>. Fatores de risco cardiovascular merecem atenção contínua e acompanhamento médico regular. Recomendo conversar com um cardiologista para uma avaliação personalizada. Posso te ajudar a agendar uma consulta?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "risk_factor": "@risk_factor"
+      }
+    },
+    {
+      "dialog_node": "node_condition_info",
+      "type": "standard",
+      "title": "Informação sobre Condição",
+      "conditions": "#ask_condition_info",
+      "parent": null,
+      "previous_sibling": "node_risk_factors",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Posso te explicar sobre: arritmia, cardiomegalia, insuficiência cardíaca ou infarto. Sobre qual dessas condições você gostaria de saber mais?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {}
+    },
+    {
+      "dialog_node": "node_condition_arritmia",
+      "type": "standard",
+      "title": "Condição: Arritmia",
+      "conditions": "@condition:arritmia",
+      "parent": "node_condition_info",
+      "previous_sibling": null,
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Arritmia é uma alteração no ritmo dos batimentos cardíacos — o coração pode bater rápido demais (taquicardia), devagar demais (bradicardia) ou de forma irregular. Pode ser benigna ou exigir tratamento, dependendo da causa."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {}
+    },
+    {
+      "dialog_node": "node_condition_cardiomegalia",
+      "type": "standard",
+      "title": "Condição: Cardiomegalia",
+      "conditions": "@condition:cardiomegalia",
+      "parent": "node_condition_info",
+      "previous_sibling": "node_condition_arritmia",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Cardiomegalia é o aumento do tamanho do coração, identificável em radiografias de tórax. Pode ser consequência de hipertensão, doença valvar ou insuficiência cardíaca, entre outras causas."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {}
+    },
+    {
+      "dialog_node": "node_condition_insuficiencia",
+      "type": "standard",
+      "title": "Condição: Insuficiência Cardíaca",
+      "conditions": "@condition:insuficiencia_cardiaca",
+      "parent": "node_condition_info",
+      "previous_sibling": "node_condition_cardiomegalia",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Insuficiência cardíaca ocorre quando o coração não consegue bombear sangue de forma eficiente para atender às necessidades do corpo. Sintomas comuns incluem falta de ar e inchaço nas pernas."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {}
+    },
+    {
+      "dialog_node": "node_condition_infarto",
+      "type": "standard",
+      "title": "Condição: Infarto",
+      "conditions": "@condition:infarto",
+      "parent": "node_condition_info",
+      "previous_sibling": "node_condition_insuficiencia",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "O infarto (ataque cardíaco) acontece quando o fluxo de sangue para uma parte do coração é bloqueado, geralmente por um coágulo. É uma emergência médica — se você está com esse sintoma agora, procure ajuda imediatamente (SAMU 192)."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {}
+    },
+    {
+      "dialog_node": "node_condition_default",
+      "type": "standard",
+      "title": "Condição: Esclarecer",
+      "conditions": "true",
+      "parent": "node_condition_info",
+      "previous_sibling": "node_condition_infarto",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Posso te explicar sobre: arritmia, cardiomegalia, insuficiência cardíaca ou infarto. Sobre qual dessas condições você gostaria de saber mais?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {}
+    },
+    {
+      "dialog_node": "node_exam_info",
+      "type": "standard",
+      "title": "Informação sobre Exame",
+      "conditions": "#ask_exam_info",
+      "parent": null,
+      "previous_sibling": "node_condition_info",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Posso explicar sobre: eletrocardiograma, raio-X de tórax ou ecocardiograma. Qual desses exames você gostaria de entender melhor?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {}
+    },
+    {
+      "dialog_node": "node_exam_ecg",
+      "type": "standard",
+      "title": "Exame: ECG",
+      "conditions": "@exam:eletrocardiograma",
+      "parent": "node_exam_info",
+      "previous_sibling": null,
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "O eletrocardiograma (ECG) registra a atividade elétrica do coração e ajuda a identificar arritmias, isquemias e outras alterações. É rápido e indolor."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {}
+    },
+    {
+      "dialog_node": "node_exam_raiox",
+      "type": "standard",
+      "title": "Exame: Raio-X de Tórax",
+      "conditions": "@exam:raio_x_torax",
+      "parent": "node_exam_info",
+      "previous_sibling": "node_exam_ecg",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "O raio-X de tórax permite visualizar o tamanho e formato do coração e pulmões, auxiliando a identificar cardiomegalia, derrames e infiltrações."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {}
+    },
+    {
+      "dialog_node": "node_exam_eco",
+      "type": "standard",
+      "title": "Exame: Ecocardiograma",
+      "conditions": "@exam:ecocardiograma",
+      "parent": "node_exam_info",
+      "previous_sibling": "node_exam_raiox",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "O ecocardiograma usa ultrassom para avaliar a estrutura e o funcionamento do coração em tempo real, incluindo válvulas e câmaras cardíacas."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {}
+    },
+    {
+      "dialog_node": "node_exam_default",
+      "type": "standard",
+      "title": "Exame: Esclarecer",
+      "conditions": "true",
+      "parent": "node_exam_info",
+      "previous_sibling": "node_exam_eco",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Posso explicar sobre: eletrocardiograma, raio-X de tórax ou ecocardiograma. Qual desses exames você gostaria de entender melhor?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {}
+    },
+    {
+      "dialog_node": "node_schedule_appointment",
+      "type": "standard",
+      "title": "Agendar Consulta",
+      "conditions": "#schedule_appointment",
+      "parent": null,
+      "previous_sibling": "node_exam_info",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Perfeito, <? $appointment_name ?>! Pré-agendei sua consulta para o período da <? $appointment_period ?>. Nossa equipe entrará em contato em breve para confirmar data e horário exatos. 📅"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {},
+      "slots": [
+        {
+          "variable": "$appointment_name",
+          "entity": "sys-person",
+          "prompt": {
+            "generic": [
+              {
+                "response_type": "text",
+                "values": [
+                  {
+                    "text": "Para começar o agendamento, qual é o seu nome completo?"
+                  }
+                ],
+                "selection_policy": "sequential"
+              }
+            ]
+          }
+        },
+        {
+          "variable": "$appointment_period",
+          "entity": "period",
+          "prompt": {
+            "generic": [
+              {
+                "response_type": "text",
+                "values": [
+                  {
+                    "text": "Obrigado, <? $appointment_name ?>! Você prefere o período da manhã, tarde ou noite?"
+                  }
+                ],
+                "selection_policy": "sequential"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "dialog_node": "node_escalate_human",
+      "type": "standard",
+      "title": "Escalar para Humano",
+      "conditions": "#escalate_human",
+      "parent": null,
+      "previous_sibling": "node_schedule_appointment",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Claro, vou te direcionar para um de nossos atendentes humanos. Você pode falar conosco pelo telefone (11) 4000-0000 ou pelo WhatsApp (11) 90000-0000, das 8h às 20h em dias úteis."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {}
+    },
+    {
+      "dialog_node": "node_thanks",
+      "type": "standard",
+      "title": "Agradecimento",
+      "conditions": "#thanks",
+      "parent": null,
+      "previous_sibling": "node_escalate_human",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Por nada! Fico à disposição sempre que precisar. 💙"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {}
+    },
+    {
+      "dialog_node": "node_goodbye",
+      "type": "standard",
+      "title": "Despedida",
+      "conditions": "#goodbye",
+      "parent": null,
+      "previous_sibling": "node_thanks",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Até logo! Cuide bem do seu coração. Lembre-se: este assistente é um apoio informativo e não substitui uma consulta médica presencial. 🫀"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {}
+    },
+    {
+      "dialog_node": "node_anything_else",
+      "type": "standard",
+      "title": "Anything Else (Fallback)",
+      "conditions": "anything_else",
+      "parent": null,
+      "previous_sibling": "node_goodbye",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Desculpe, não entendi. Posso ajudar com sintomas, fatores de risco, condições, exames ou agendamento. Pode reformular?"
+              },
+              {
+                "text": "Ainda não consegui entender. Que tal falar com um de nossos atendentes humanos? Digite 'falar com atendente' para isso."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "count_fallback": "<? ($count_fallback == null) ? 1 : $count_fallback + 1 ?>"
+      }
+    }
+  ],
+  "counterexamples": [
+    {
+      "text": "qual é a previsão do tempo"
+    },
+    {
+      "text": "conte uma piada"
+    },
+    {
+      "text": "quero pedir uma pizza"
+    },
+    {
+      "text": "quem ganhou o jogo ontem"
+    },
+    {
+      "text": "toca uma música"
+    }
+  ],
+  "system_settings": {
+    "tooling": {
+      "store_generic_responses": true
+    },
+    "disambiguation": {
+      "prompt": "Você quis dizer:",
+      "none_of_the_above_prompt": "Nenhuma das opções acima",
+      "enabled": true,
+      "sensitivity": "auto",
+      "randomize": true,
+      "max_suggestions": 3,
+      "suggestion_text_policy": "title"
+    },
+    "human_agent_assist": {},
+    "spelling_suggestions": true,
+    "spelling_auto_correct": false,
+    "system_entities": {
+      "enabled": true
+    },
+    "off_topic": {
+      "enabled": true
+    }
+  },
+  "webhooks": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2023-06-15"
+    }
+  }
+}

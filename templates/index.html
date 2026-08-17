@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CardioIA — Assistente Cardiológico Virtual</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="app">
+    <header class="cabecalho">
+      <div class="cabecalho-titulo">
+        <span class="emoji">🫀</span>
+        <div>
+          <h1>CardioIA</h1>
+          <p>Assistente Cardiológico Virtual</p>
+        </div>
+      </div>
+      <span id="modo-badge" class="badge">{{ 'Modo: Simulado' if modo_simulado else 'Modo: Watson Assistant' }}</span>
+    </header>
+
+    <div class="aviso">
+      ⚠️ Este assistente é um protótipo educacional e <strong>não substitui</strong> uma consulta médica.
+      Em caso de emergência, ligue <strong>192 (SAMU)</strong>.
+    </div>
+
+    <main id="chat-janela" class="chat-janela" aria-live="polite"></main>
+
+    <div class="opcoes">
+      <label>
+        <input type="checkbox" id="chk-debug">
+        Mostrar detalhes técnicos (intent / entidade detectada)
+      </label>
+    </div>
+
+    <form id="form-mensagem" class="form-mensagem">
+      <input
+        type="text"
+        id="campo-mensagem"
+        placeholder="Digite sua mensagem..."
+        autocomplete="off"
+        maxlength="500"
+        required
+      >
+      <button type="submit" id="botao-enviar">Enviar</button>
+    </form>
+  </div>
+
+  <script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body>
+</html>
